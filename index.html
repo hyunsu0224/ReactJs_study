@@ -9,27 +9,101 @@
 </head>
 <body>
   <div id="root"></div>
-
-  <script type="text/babel">
+  <div id="root2"></div>
+  <div id="root3"></div>
+  <div id="root4"></div>
+  <div id="root5"></div>
+  <div id="root6"></div>
+  <script type="text/babel">    //babel? jsx? react.createElement() ??? ???? ??.
+  
+  //?? ??
     const user = {
       firstName : 'Jeong',
       lastName : 'Hyeonsu'
     };
+
+  //?? ??(JSX ???)
+ 
     function formatName(user){
       return user.firstName + ' ' + user.lastName;    
     }
+  //react? JSX ???? ?? javascript ??? ??? ?? ????.
+  // if? for loop?? ?? ? ??.
+    function getGreeting(user) {
+      if (user) {
+        return <h1>Hello, {formatName(user)}!</h1>;
+      }
+      return <h1>Hello, Stranger.</h1>;
+    }
 
+  // ?? ??
     const element = (
       <h1>
         Hello, {formatName(user)}!
       </h1>
     );
+    const element2 = (
+      <h1>
+        {getGreeting(user)}
+      </h1>
+    );
+    
+    //??? ??? ?? ???? ??? ?? (?? ?? 2??? ??? ???.)
+    const element_test1 = (
+      <h1 className="greeting">
+        Hello, world
+      </h1>
+    );
 
+    const element_test2 = React.createElement(
+      'h1',
+      {className : 'greeting'},
+      'Hello, world!'
+    );
+
+    //React element ???? ???? ?? ???? ??
+    const element_test3 = {
+      type : 'h1',
+      props : {
+        className : 'greeting',
+        children : 'Hello, world'
+      }
+    };
+    
+
+
+    const element3 = <h1>asd</h1>
+  //???
     ReactDOM.render(
       element,
       document.getElementById('root')
     );
+
+    ReactDOM.render(
+      element2,
+      document.getElementById('root2')
+    )
+
+    ReactDOM.render(
+      element3,
+      document.getElementById('root3')
+    )
+
+    ReactDOM.render(
+      element_test1,
+      document.getElementById('root4')
+    )
+
+    ReactDOM.render(
+      element_test2,
+      document.getElementById('root5')
+    )
+
+    ReactDOM.render(
+      element_test3.props.className,
+      document.getElementById('root6')
+    )
   </script>
-  
+
 </body>
 </html>
