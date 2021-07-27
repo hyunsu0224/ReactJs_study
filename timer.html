@@ -15,6 +15,29 @@
     // let a = 111;  let으로 변수를 선언하는 경우 블록 레벨 스코프라서 함수에 a라는 변수가 정의되어도 적용되지 않는다.
     // let a = 222;  중복으로 선언을 할 경우 마지막에 입력한 값은 정의가 되지않고 let a = 111; 값이 적용되어진다.
     // 반면 var로 선언을 하면 새롭게 중복선언을 하면 최근에 입력한 값으로 결과가 도출된다.
+    // let으로 변수를 지정하기 전에 console.log를 불러오면 error가 발생하지만
+    // var로 변수를 지정하기 전에 console.log를 하면 error가 발생하지 않는다.
+    // const는 상수를 만드는데 사용한다.(변하지 않을 상수라고 함)
+    // const 역시 let과 마찬가지로 block-level-scope 이다
+    // let과의 다른점이 
+    // 예 ) const a = 11;
+    //      a = 22; 라고하면 에러가 발생
+    //      let b = 11;
+    //      b = 22; 라고하면 에러가 발생하지 않는다
+    
+    // const는 객체의 내용이 변경이 가능하다.
+    // 객체의 속성이 보호되지 않는다, 즉 객체의 내용이 변경이 가능하다
+    // 예 ) const a = {
+    //        name : 'asd',
+    //        info : {
+    //          phone:123123
+    //        }
+    //      };
+    //      a.name = 'Lee'; // 가능
+    //      console.log(a); // {name : 'Lee', info:{phone:123123}}
+    // 만약 선언한 객체를 보호하고 싶다면 Object.freeze(a) 메소드를 사용하면 속성이 변하지 않고
+    // console.log(Object.isFrozen(a))로 해당 객체에 freeze 메소드를 선언했는지 알 수 있다.
+    // 하지만 객체 안의 객체 즉 뎁스가 2 인 곳은 바꿀 수 있는데 이마저도 막으려면 Deep freeze를 위한 함수를 만들어야 한다.
     function Clock(props) {
       return (
         <div>
