@@ -22,46 +22,49 @@
       lastName : 'Hyeonsu'
     };
 
-  //?? ??(JSX ???)
+  //user.firstName -> Jeong
+  //user.lastName -> Hyeonsu
  
     function formatName(user){
       return user.firstName + ' ' + user.lastName;    
     }
-  //react? JSX ???? ?? javascript ??? ??? ?? ????.
-  // if? for loop?? ?? ? ??.
+  // 조건문에 값이 들어맞지 않는 경우 if문 밖에 있는 return이 실행된다.
     function getGreeting(user) {
       if (user) {
-        return <h1>Hello, {formatName(user)}!</h1>;
+        return <h1>Hello, {formatName(user)} !!!</h1>;
       }
       return <h1>Hello, Stranger.</h1>;
     }
 
-  // ?? ??
+  // 지금까지 사용한 위의 내용들을 이용해 재사용이 가능한 함수를 만들어보도록 하자.
     const element = (
       <h1>
-        Hello, {formatName(user)}!
+        Hello, {formatName(user)} !
       </h1>
     );
+
+  // 위에서 사용한 getGreeting 이라는 함수의 값을 가져온다. user가 파라미터로 들어가는 경우 if=true문이 호출된다.
     const element2 = (
       <h1>
-        {getGreeting(user)}
+        {getGreeting(user)} 위에 내용은 (element2) 자동으로 줄바꿈이 일어난것이다.
       </h1>
     );
     
-    //??? ??? ?? ???? ??? ?? (?? ?? 2??? ??? ???.)
+    //HTML 코드를 통째로 삽입한다.
     const element_test1 = (
       <h1 className="greeting">
-        Hello, world
+        Hello, world (element_text1)
       </h1>
     );
 
+    //root5번의 내용이다. 한개의 태그밖에 사용할수없다.
     const element_test2 = React.createElement(
       'h1',
       {className : 'greeting'},
-      'Hello, world!'
+      'Hello, world! (element_test2) 의 내용이다.ㅎㅎ'
     );
 
-    //React element ???? ???? ?? ???? ??
+    //React element를 좀더 상세하게 분류할때.
     const element_test3 = {
       type : 'h1',
       props : {
@@ -69,9 +72,6 @@
         children : 'Hello, world'
       }
     };
-    
-
-
     const element3 = <h1>asd</h1>
   //???
     ReactDOM.render(
