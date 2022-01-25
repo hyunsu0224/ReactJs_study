@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <div id="root2"></div>
+    <!-- <div id="root3"></div>
+    <div id="root4"></div>
+    <div id="root5"></div>
+    <div id="root6"></div> -->
+
+    <script type="text/babel">
+        // example1
+        const element1 = <h1> Hello, World ! </h1>;
+        // example1 render
+        ReactDOM.render(
+            element1,
+            document.getElementById('root')
+        )
+
+        /*==================================================*/
+
+        // example2
+        function tick() {
+            const element2 = (
+                <div>
+                    <h1>Hello, world! {new Date().toLocaleTimeString('ar-EG')}</h1>
+                    <h2>It is {new Date().toLocaleTimeString()}.</h2>
+                </div>
+            );
+        // example2 render
+            ReactDOM.render(
+                element2,
+                document.getElementById('root2')
+            );
+        }
+        setInterval(tick, 1000)
+
+        /*==================================================*/
+
+        // example3
+
+        // example3 render
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <div id="root2"></div>
+    <div id="root3"></div>
+    <div id="root4"></div>
+    <div id="root5"></div>
+    <div id="root6"></div>
+    <style>
+        .test4 {
+            width: 50%;
+            position: relative;
+            display: block;
+        }
+        .test4 img{
+            width:  50%;
+        }
+    </style>
+    <script type="text/babel">
+        // example1
+        const name = 'Josh Perez';
+        const element = <h1>Hello, {name} 1</h1>;
+        // example1 render
+        ReactDOM.render(
+            element,
+            document.getElementById('root')
+        )
+
+        /*==================================================*/
+
+        // example2
+        function formatName(user) {
+            return user.firstName + ' ' + user.lastName;
+        }
+        const user = {
+            firstName : 'Harper',
+            lastName : 'Perez'
+        };
+        const element2 = (
+            <h1>
+                Hello, {formatName(user)}!
+            </h1>
+        )
+        // example2 render
+        ReactDOM.render(
+            element2,
+            document.getElementById('root2')
+        )
+        /*==================================================*/
+
+        //example3
+        function formatName2(user2) {
+            return user2.firstName + ' ' + user2.lastName;
+        }
+        const user2 = {
+            firstName : 'Jeong',
+            lastName : 'Hyeonsu'
+        }
+        function getGreeting(user2) {
+            if(user2) {
+                return <h1> Hello, {formatName2(user2)}! </h1>;
+            }
+            return <h1> Hello, stranger.</h1>;
+        }
+        //example3 render
+        ReactDOM.render (
+            getGreeting(user2),
+            document.getElementById('root3')
+        )
+
+        /*==================================================*/
+
+        //example4
+        const user4_1 = {
+            avatarA : 'https://www.reactjs.org'
+        }
+        const user4_2 = {
+            avatarUrl : 'https://image.rakuten.co.jp/naracamicie/cabinet/2102/10-11-01-029_72.jpg'
+        }
+        
+        const element4 = (
+            <a class="test4" href={user4_1.avatarA}><img src={user4_2.avatarUrl}></img></a>
+            )
+
+        //example4 render
+        ReactDOM.render (
+            element4,
+            document.getElementById('root4')
+        )
+
+        /*==================================================*/
+
+        //example5
+        const element5 = (
+            <h1 className="greeting">Hello, world!</h1>)
+        //example5 render
+        ReactDOM.render (
+            element5,
+            document.getElementById('root5')
+        )
+
+        //example6
+        
+        const element6 = React.createElement(
+            'h1',
+            {className : 'greeting'},
+            'Hello, World2222!'
+        );
+        // const element6 = {
+        //     type : 'h1',
+        //     props : {
+        //         className : 'greeting',
+        //         children : 'Hello, world!'
+        //     }
+        // }
+        //example6 render
+        ReactDOM.render (
+            element6,
+            document.getElementById('root6')
+        )
+    </script>
+</body>
+</html>
